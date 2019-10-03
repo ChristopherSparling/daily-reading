@@ -1,16 +1,14 @@
 import smtplib
+import pandas as pd
 from hidden import credentials
-from collections import namedtuple
 
-Book = namedtuple('Book', ['s_title', 'i_recc_divisions', 's_division_word', 'ndifficulty'])
-BookList = []
 
-email_text = """
-Subject: %s
-Daily Readings: 
-%s
-%s
-""" % (subject, "\n ".join)
+# email_text = """
+# Subject: %s
+# Daily Readings: 
+# %s
+# %s
+# """ % (subject, "\n ".join(), )
 
 
 def send(message):
@@ -25,5 +23,13 @@ def send(message):
     except Exception as e:
         print("Failed to send daily message: " + str(e))
 
+def getBookList(books_csv):
+    books_df = pd.read_csv(books_csv, sep=',', header=0)
+    print(books_df)
+    print(books_df.keys())
+
+
+
 if __name__ == "__main__":
-    send(email_text)
+    # send(email_text)
+    print(getBookList('books.csv'))
