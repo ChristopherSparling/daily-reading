@@ -29,19 +29,19 @@ def getBookList(books_csv):
     []'suit', 'rank', 'title', 'author', 'recommended_divisions',
        'division_word', 'completed']
     """
-    bookList = []
+    bookList = pd.DataFrame(
+        columns=['suit', 'rank', 'title', 'author', 'recommended_divisions',
+       'division_word', 'completed']
+       )
     books_df = pd.read_csv(books_csv, sep=',', header=0)
     incomplete_books_df = books_df[books_df.completed == False]
 
     for suit, groupdata in incomplete_books_df.groupby('suit', as_index=False):
         randint = rnd.randrange(len(groupdata))
-        print(suit, randint, len(groupdata))
-        # print(randint, groupdata)
-        # bookList.append(groupdata.iloc[[randint]])
-        # print("randint:" ,randint, "\n", bookList)
-        # print(suit, groupdata, len(groupdata))
+        bookList = pd.concat([bookList,groupdata.iloc[[randint]]], ignore_index=True)
+
+    return bookList
         
 
 if __name__ == "__main__":
-    # send(email_text)
     print(getBookList('books.csv'))
