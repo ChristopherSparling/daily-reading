@@ -1,12 +1,12 @@
-suit,rank,title,author,recommended_divisions,division_word,completed
-spades,A,Thus Spoke Zarathustra,Friedrich Nietzsche,4,sections,False
-spades,2,The 7 Habits of Highly Effective People,Stephen R. Covey,25,pages,False
-clubs,A,Waiting For Godot, Samuell Beckett,20,pages,True
-clubs,2,The New International Bartenders Guide,Random House,2,pages,False
-diamonds,A,The Language Instinct,Steven Pinker,25,pages,False
-hearts,A,Fluent Python,Luciano Ramalho,3,sections,False
-hearts,2,Dungeon Masters Guide,WotC,3,sections,False
-hearts,3,Easy French Step-by-Step,Myrna Bell Rochester,1,chapter,False
-hearts,4,NLP with Python,Steven Bird et al, 3,sections,False
-hearts,5,Linguistics,Andrew Radford et al,1,chapter,False
-hearts,6,Python Cookbook,David Beazley et al,3,sections,False
+suit,card_rank,title,author,recommended_divisions,division_word,completed
+S,A,Thus Spoke Zarathustra,Friedrich Nietzsche,4,sections,False
+S,2,The 7 Habits of Highly Effective People,Stephen R. Covey,25,pages,False
+C,A,Waiting For Godot, Samuell Beckett,20,pages,True
+C,2,The New International Bartenders Guide,Random House,2,pages,False
+D,A,The Language Instinct,Steven Pinker,25,pages,False
+H,A,Fluent Python,Luciano Ramalho,3,sections,False
+H,2,Dungeon Masters Guide,WotC,3,sections,False
+H,3,Easy French Step-by-Step,Myrna Bell Rochester,1,chapter,False
+H,4,NLP with Python,Steven Bird et al, 3,sections,False
+H,5,Linguistics,Andrew Radford et al,1,chapter,False
+H,6,Python Cookbook,David Beazley et al,3,sections,False
