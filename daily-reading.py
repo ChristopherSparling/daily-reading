@@ -2,6 +2,7 @@ import smtplib
 import random as rnd
 import pandas as pd
 from hidden import credentials
+import datetime as dt
 
 def send(message):
     to_number = credentials['number'] + credentials['carrier']
@@ -32,31 +33,26 @@ def getBookList(books_csv):
     for suit, groupdata in incomplete_books_df.groupby('suit', as_index=False):
         randint = rnd.randrange(len(groupdata))
         bookList = pd.concat([bookList,groupdata.iloc[[randint]]], ignore_index=True)
-        # print(bookList)
+    
     return bookList
         
 def createMessage (bookList) :
-    # """
-    # readings format:
-    #     book.title \n
-    #     book.author \n
-    #     book.suit|book.rank book.reccomended_divisions book.division_word \n
-    #     \n
-    # """
-    # print('BookList:\n',bookList)
-    # for index,book in bookList.iterrows():
-    #     print(index, book.card_rank)
-    # print( [book.rank for index, book in bookList.iterrows()]
-    # )
+    """
+    readings format:
+        book.title \n
+        book.author \n
+        book.suit|book.rank book.reccomended_divisions book.division_word \n
+        \n
+    """
+    current_date = dt.datetime.now().strftime('%a %B %d, %Y')
     readings = "\n\n".join(
-        [f"{book.title}\n{book.author}\n{book.suit}{book.card_rank}|{book.recommended_divisions} {book.division_word}" for index, book in bookList.iterrows()]
+        [f"{book.title}\n{book.author}\n{book.card_rank}{book.suit} | {book.recommended_divisions} {book.division_word}" for index, book in bookList.iterrows()]
         )
-    email_text = f"""
-    Subject: Daily Readings
-    {readings}
-     """
-    print(email_text)
+    email_text = f"""{current_date}\n\n{readings}"""
+    
+    return email_text
 
 if __name__ == "__main__":
     bookList = getBookList('books.csv')
-    createMessage(bookList)
+    message = createMessage(bookList)
+    send(message)
