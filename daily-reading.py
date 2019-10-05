@@ -53,6 +53,6 @@ def createMessage (bookList) :
     return email_text
 
 if __name__ == "__main__":
-    bookList = getBookList('books.csv')
+    bookList = getBookList(r'C:/Users/chris/Documents/GitHub/daily-reading/books.csv') # raw string to prevent unicode errors in .bat file later on
     message = createMessage(bookList)
     send(message)
