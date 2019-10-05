@@ -1,9 +1,9 @@
 # Daily Readings Notifier
----
 
 A simple script to send daily goals for my reading list. Currently trying to follow the deck of cards reading challenge.
 
 ### Reading List:  
+---
 **Spades:**  
 - [ ] A | Thus Spoke Zarathustra  
 
